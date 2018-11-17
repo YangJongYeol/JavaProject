@@ -19,6 +19,8 @@ public class RecoController extends JFrame {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension =  toolkit.getScreenSize(); // screen information
         setBounds(0 , 0 , (int)dimension.getWidth() , (int)dimension.getHeight());
+        
+        System.out.println("");
 
         setVisible(true);
     }

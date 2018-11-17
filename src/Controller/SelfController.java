@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Order;
 import View.Self.SelfFrame;
 
 import javax.swing.*;
@@ -7,10 +8,12 @@ import java.awt.*;
 
 public class SelfController extends JFrame {
     private SelfFrame self;
+    private  Order order;
 
-    public SelfController(JFrame frame) {
+    public SelfController(JFrame frame, Order order) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.self = new SelfFrame(this);
+        this.order = order;
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension =  toolkit.getScreenSize(); // screen information

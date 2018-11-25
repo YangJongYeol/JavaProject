@@ -1,15 +1,20 @@
 package Controller;
 
 import Model.Order;
-import View.Start.StartFrame_chooseDelivery;
-import View.Start.StartFrame_chooseRecommend;
-import View.Start.StartFrame_chooseStore;
-import View.Start.StartFrame_setLocation;
+import View.Start.*;
 import com.teamdev.jxbrowser.chromium.Browser;
+import com.teamdev.jxbrowser.chromium.JSValue;
+import com.teamdev.jxbrowser.chromium.LoadURLParams;
+import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
+import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Connection;
+import java.sql.Statement;
+
+//import com.mysql.*;
 
 public class StartController extends JFrame {
     private Order order;
@@ -17,6 +22,8 @@ public class StartController extends JFrame {
     private StartFrame_chooseStore chooseStore;
     private StartFrame_chooseDelivery chooseDelivery;
     private StartFrame_chooseRecommend chooseRecommend;
+//    private Connection connection = null;
+//    private Statement statement = null;
 
     public StartController() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,10 +50,9 @@ public class StartController extends JFrame {
             getContentPane().removeAll();
             Browser browser = new Browser();
             BrowserView browserView = new BrowserView(browser);
-            browserView.setBounds(0,0,10,10);
-//            browser.loadURL("http://map.naver.com");
             getContentPane().add(browserView, BorderLayout.CENTER);
-            browser.loadURL("http://localhost:8000/map.html");
+//            browser.loadURL("http://localhost:8000/map.html");
+            browser.loadURL("http://localhost:8000/map.html?"+order.getAddress());
             getContentPane().add(chooseStore, BorderLayout.EAST);
             revalidate();
             repaint();

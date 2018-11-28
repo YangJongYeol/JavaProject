@@ -11,6 +11,7 @@ import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class StartController extends JFrame {
     private Order order;
     private StartFrame_setLocation setLocation;
@@ -39,12 +40,12 @@ public class StartController extends JFrame {
             getContentPane().add(setLocation);
             revalidate();
             repaint();
-        } else if (frameName.equals("store")) {
+        } else if (frameName.equals("store")) {        	
             getContentPane().removeAll();
             Browser browser = new Browser();
             BrowserView browserView = new BrowserView(browser);
             browserView.setBounds(0,0,10,10);
-//            browser.loadURL("http://map.naver.com");
+            browser.loadURL("http://map.naver.com");
             getContentPane().add(browserView, BorderLayout.CENTER);
             browser.loadURL("http://localhost:8000/map.html");
             getContentPane().add(chooseStore, BorderLayout.EAST);

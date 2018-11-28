@@ -1,14 +1,19 @@
 package Model;
 
 public class Product {
-    private int Menu;
+	
+	private int Menu;
     private int Bread;
     private int Topping[];
     private int Vegetable[];
     private int Sauce[];
     private int Set;
+    
+    public Product() {
+		super();
+	}
 
-    public Product(int menu, int bread, int[] topping, int[] vegetable, int[] sauce, int set) {
+	public Product(int menu, int bread, int[] topping, int[] vegetable, int[] sauce, int set) {
         Menu = menu;
         Bread = bread;
         Topping = topping;
@@ -64,4 +69,12 @@ public class Product {
     public void setSet(int set) {
         Set = set;
     }
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Menu:"+ getMenu() + "Bread:" + getBread() + "Topping:" + getTopping() + "Sauce:" + getSauce() + "Set:" + getSet();
+	}
+
+	
 }

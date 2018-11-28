@@ -6,10 +6,12 @@ import View.Reco.RecoFrame;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class RecoController extends JFrame {
     private RecoFrame reco;
     private Order order;
 
+    //Controller 초기화
     public RecoController(JFrame frame, Order order) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(frame.getContentPane());
@@ -25,6 +27,7 @@ public class RecoController extends JFrame {
         setVisible(true);
     }
 
+    //View 변경하기
     public void change(String frameName) {
         if (frameName.equals("reco")) {
             getContentPane().removeAll();

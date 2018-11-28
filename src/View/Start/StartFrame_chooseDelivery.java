@@ -10,6 +10,7 @@ public class StartFrame_chooseDelivery extends JPanel {
     StartController controller;
     public StartFrame_chooseDelivery(StartController controller) {
         this.controller = controller;
+        
         JButton button_yes = new JButton("Button_delivery_yes");
         button_yes.setBounds(10,10,10,10);
         button_yes.setActionCommand("yes");

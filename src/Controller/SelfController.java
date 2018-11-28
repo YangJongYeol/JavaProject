@@ -1,13 +1,18 @@
 package Controller;
 
 import Model.Order;
+import Model.Content;
+import Model.Ingredient;
 import View.Self.SelfFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SelfController extends JFrame {
-    private SelfFrame self;
+    private Model.Ingredient model;
+	private SelfFrame self;
     private  Order order;
 
     public SelfController(JFrame frame, Order order) {
@@ -30,4 +35,20 @@ public class SelfController extends JFrame {
             repaint();
         }
     }
+    
+    public void getList(int level) {
+    	ArrayList<Content> arrayList = new ArrayList<Content>();
+    	Iterator<Content> Iterator = arrayList.iterator();
+    	
+    	model.connectDB();
+    	arrayList = model.getIngredientByLevel(level);
+    	
+    	//결과 Iterator.next().getImg()로 return
+ 		while (Iterator.hasNext()) {
+ 		    System.out.println(Iterator.next().getImg());
+ 		}
+ 		
+    }
+    
+    
 }

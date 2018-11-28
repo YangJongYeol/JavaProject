@@ -5,12 +5,15 @@
     <title>Daum 지도 시작하기</title>
 </head>
 <body>
-<h1>
-    "Hello World!!"
-</h1>
-<div id="map" style="width:500px;height:400px;"></div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e68d9c2d5b65963307d2424ed87810b"></script>
-<script>
+    <h1 id="address">"Hello World"</h1>
+    <div id="map" style="width:500px;height:400px;"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e68d9c2d5b65963307d2424ed87810b&libraries=services"></script>
+    <script>
+        var addr = String(decodeURI(location)).split('?');
+
+        var head = document.getElementById('address');
+        head.innerHTML = addr[1];
+
 		var container = document.getElementById('map');
 		var options = {
 			center: new daum.maps.LatLng(33.450701, 126.570667),
@@ -18,6 +21,24 @@
 		};
 
 		var map = new daum.maps.Map(container, options);
+        var geocoder = new daum.maps.services.Geocoder();
+        geocoder.addressSearch(addr[1], function(result, status) {
+            if (status === daum.maps.services.Status.OK) {
+                var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+
+                var marker = new daum.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+
+                var infowindow = new daum.maps.InfoWindow({
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                });
+                infowindow.open(map, marker);
+
+                map.setCenter(coords);
+            }
+        });
 	</script>
 </body>
 </html>

@@ -1,22 +1,20 @@
 package Controller;
 
-import Model.Order;
 import View.Reco.RecoFrame;
+import View.Reco.RecoComplete;
 
 import javax.swing.*;
 import java.awt.*;
 
-
 public class RecoController extends JFrame {
     private RecoFrame reco;
-    private Order order;
+    private RecoComplete complete;
 
-    //Controller 초기화
-    public RecoController(JFrame frame, Order order) {
+    public RecoController(JFrame frame) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(frame.getContentPane());
+        //setContentPane(frame.getContentPane());
         this.reco = new RecoFrame(this);
-        this.order = order;
+        this.complete = new RecoComplete(this);
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension =  toolkit.getScreenSize(); // screen information
@@ -25,11 +23,15 @@ public class RecoController extends JFrame {
         setVisible(true);
     }
 
-    //View 변경하기
     public void change(String frameName) {
         if (frameName.equals("reco")) {
             getContentPane().removeAll();
             getContentPane().add(reco);
+            revalidate();
+            repaint();
+        }else if(frameName.equals("complete")) {
+            getContentPane().removeAll();
+            getContentPane().add(complete);
             revalidate();
             repaint();
         }

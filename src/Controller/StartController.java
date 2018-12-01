@@ -67,7 +67,7 @@ public class StartController extends JFrame {
             revalidate();
             repaint();
         } else if (frameName.equals("reco")) {
-            RecoController recoController = new RecoController(this, order);
+            RecoController recoController = new RecoController(this);
             recoController.change("reco");
             dispose();
         } else if (frameName.equals("self")) {

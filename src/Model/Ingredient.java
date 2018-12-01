@@ -36,26 +36,26 @@ public class Ingredient {
 	}
 	
 	//Self
-	//level에 따라서 DB에서 재료 return
-	public ArrayList<Content> getIngredientByLevel(int level) {
-		System.out.println(level);
-		String sql = "SELECT id, title, img FROM ingredients WHERE level = ?";
+	//step에 따라서 DB에서 재료 return
+	public ArrayList<Content> getIngredientByLevel(int step) {
+		System.out.println(step);
+		String sql = "SELECT id, title, img FROM ingredients WHERE step = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, level);
+			pstmt.setInt(1, step);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				 int id  = rs.getInt("id");
 		         String title = rs.getString("title");
 		         String img = rs.getString("img");
-
+`	
 		         //Display values
 		         System.out.print("ID: " + id);
 		         System.out.print(", title: " + title);
 		         System.out.println(", img: " + img);
 		         
-		         list.add(new Content(id, level, title, img));
+		         list.add(new Content(id, step, title, img));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -68,14 +68,14 @@ public class Ingredient {
 	//Product
 	//id에 따라서 DB에서 재료 return
 	public ArrayList<Content> getIngredientById(int id) {
-		String sql = "SELECT level, title, img FROM ingredients WHERE id = ?";
+		String sql = "SELECT step, title, img FROM ingredients WHERE id = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				 int level = rs.getInt("level");
+				 int step = rs.getInt("step");
 		         String title = rs.getString("title");
 		         String img = rs.getString("img");
 
@@ -83,7 +83,7 @@ public class Ingredient {
 		         //System.out.print(", title: " + title);
 		         //System.out.println(", img: " + img);
 		         
-		         list.add(new Content(id, level, title, img));
+		         list.add(new Content(id, step, title, img));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -95,7 +95,7 @@ public class Ingredient {
 	
 	public Product getRandomIngredientId() {
 		String sql = "SELECT id FROM ingredients " +
-						"WHERE level = ? ORDER BY rand() LIMIT ?";
+						"WHERE step = ? ORDER BY rand() LIMIT ?";
 		Product product = new Product();
 		
 		try {

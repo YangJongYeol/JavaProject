@@ -48,8 +48,7 @@ public class Ingredient {
 			while(rs.next()) {
 				 int id  = rs.getInt("id");
 		         String title = rs.getString("title");
-		         String img = rs.getString("img");
-`	
+		         String img = rs.getString("img");	
 		         //Display values
 		         System.out.print("ID: " + id);
 		         System.out.print(", title: " + title);
@@ -79,10 +78,7 @@ public class Ingredient {
 		         String title = rs.getString("title");
 		         String img = rs.getString("img");
 
-		         //Display values
-		         //System.out.print(", title: " + title);
-		         //System.out.println(", img: " + img);
-		         
+
 		         list.add(new Content(id, step, title, img));
 			}
 		} catch (SQLException e) {

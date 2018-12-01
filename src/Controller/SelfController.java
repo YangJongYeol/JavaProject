@@ -12,12 +12,13 @@ import java.util.Iterator;
 
 public class SelfController extends JFrame {
     private Model.Ingredient model;
-	private SelfFrame self;
-    private  Order order;
+	private SelfFrame self = null;
+    private Order order = null;
 
-    public SelfController(JFrame frame, Order order) {
+ 
+	public SelfController(JFrame frame, Order order) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.self = new SelfFrame(this);
+        this.self = new SelfFrame(null);
         this.order = order;
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -43,11 +44,12 @@ public class SelfController extends JFrame {
     	model.connectDB();
     	arrayList = model.getIngredientByLevel(level);
     	
+    	
+    	//Iterator<Content> Iterator = arrayList.iterator();
     	//결과 Iterator.next().getImg()로 return
  		while (Iterator.hasNext()) {
  		    System.out.println(Iterator.next().getImg());
  		}
- 		
     }
     
     

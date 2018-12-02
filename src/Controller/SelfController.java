@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class SelfController extends JFrame {
-    private Model.Ingredient model;
-	private SelfFrame self = null;
-    private Order order = null;
+private Model.Ingredient model;
+private SelfFrame self = null;
+private Order order = null;
 
  
-	public SelfController(JFrame frame, Order order) {
+public SelfController(JFrame frame, Order order) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.self = new SelfFrame(null);
+        this.self = new SelfFrame(this);
         this.order = order;
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
@@ -37,19 +37,20 @@ public class SelfController extends JFrame {
         }
     }
     
-    public void getList(int level) {
+    public ArrayList<Content> getList(int level) {
     	ArrayList<Content> arrayList = new ArrayList<Content>();
     	Iterator<Content> Iterator = arrayList.iterator();
+    	Ingredient IngredientModel = new Ingredient();
     	
-    	model.connectDB();
-    	arrayList = model.getIngredientByLevel(level);
-    	
+    	arrayList = IngredientModel.getIngredientByLevel(level);
+  
     	
     	//Iterator<Content> Iterator = arrayList.iterator();
     	//결과 Iterator.next().getImg()로 return
- 		while (Iterator.hasNext()) {
+ 		/*while (Iterator.hasNext()) {
  		    System.out.println(Iterator.next().getImg());
- 		}
+ 		}*/
+ 		return arrayList;
     }
     
     

@@ -4,7 +4,14 @@ import View.Reco.RecoFrame;
 import View.Reco.RecoComplete;
 
 import javax.swing.*;
+
+import Model.Content;
+import Model.Ingredient;
+import Model.Product;
+
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class RecoController extends JFrame {
     private RecoFrame reco;
@@ -29,11 +36,21 @@ public class RecoController extends JFrame {
             getContentPane().add(reco);
             revalidate();
             repaint();
-        }else if(frameName.equals("complete")) {
+        } else if(frameName.equals("complete")) {
             getContentPane().removeAll();
             getContentPane().add(complete);
             revalidate();
             repaint();
         }
+    }
+    
+    public Product getRandomList() {
+    	Product product = new Product();
+    	Ingredient IngredientModel = new Ingredient();
+    	
+    	product = IngredientModel.getRandomIngredientId();
+    	//Iterator<Content> Iterator = product.iterator();
+  
+ 		return product;
     }
 }

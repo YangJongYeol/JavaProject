@@ -38,6 +38,7 @@ public class Ingredient {
 	//Self
 	//step에 따라서 DB에서 재료 return
 	public ArrayList<Content> getIngredientByLevel(int step) {
+		connectDB();
 		System.out.println(step);
 		String sql = "SELECT id, title, img FROM ingredients WHERE step = ?";
 		try {
@@ -50,9 +51,9 @@ public class Ingredient {
 		         String title = rs.getString("title");
 		         String img = rs.getString("img");	
 		         //Display values
-		         System.out.print("ID: " + id);
-		         System.out.print(", title: " + title);
-		         System.out.println(", img: " + img);
+		         //System.out.print("ID: " + id);
+		         //System.out.print(", title: " + title);
+		         //System.out.println(", img: " + img);
 		         
 		         list.add(new Content(id, step, title, img));
 			}

@@ -19,3 +19,11 @@ out/production/JavaProject/View/Start/StartFrame_chooseStore.class
 out/production/JavaProject/View/Start/StartFrame_setLocation$MyActionListener.class
 out/production/JavaProject/View/Start/StartFrame_setLocation.class
 /bin/
+out/production/JavaProject/Model/Content.class
+out/production/JavaProject/Model/Ingredient.class
+out/production/JavaProject/View/Reco/RecoComplete$BestPanel.class
+out/production/JavaProject/View/Reco/RecoComplete$BotPanel.class
+out/production/JavaProject/View/Reco/RecoComplete$MeatPanel.class
+out/production/JavaProject/View/Reco/RecoComplete$SpicyPanel.class
+out/production/JavaProject/View/Reco/RecoComplete$TopPanel.class
+out/production/JavaProject/View/Reco/RecoComplete.class

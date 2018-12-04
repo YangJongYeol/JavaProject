@@ -43,7 +43,6 @@ public SelfController(JFrame frame, Order order) {
     	Ingredient IngredientModel = new Ingredient();
     	
     	arrayList = IngredientModel.getIngredientByLevel(level);
-  
     	
     	//Iterator<Content> Iterator = arrayList.iterator();
     	//결과 Iterator.next().getImg()로 return

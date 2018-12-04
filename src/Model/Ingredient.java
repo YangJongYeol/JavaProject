@@ -91,6 +91,7 @@ public class Ingredient {
 	}
 	
 	public Product getRandomIngredientId() {
+		connectDB();
 		String sql = "SELECT id FROM ingredients " +
 						"WHERE step = ? ORDER BY rand() LIMIT ?";
 		Product product = new Product();

@@ -11,6 +11,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -153,43 +154,50 @@ public class RecoComplete extends JPanel {
 	}
 
 	class BotPanel extends JPanel implements ActionListener {
-
+		
+		JButton random = new JButton("랜덤");
+		JButton order = new JButton("주문하기");
+		JButton cancel = new JButton("취소");
+		JLabel textRandom = new JLabel();
+		
 		public BotPanel() {
 			botPanel = new JPanel();
-			// botPanel.add(result);
-			// Border border4 = BorderFactory.createTitledBorder("");
-			// result.setBorder(border4);
-
-			// botPanel.setLayout(new GridLayout(2, 1));
-			JButton random = new JButton("랜덤");
+			
+			//랜덤 버튼
 			random.addActionListener(this);
 			random.setActionCommand("random");
 			botPanel.add(random);
 			
-
-			// ButtonGroup bg = new ButtonGroup();
-			order = new JButton("주문하기");
+			//주문하기 버튼
 			order.addActionListener(this);
-
-			cancel = new JButton("취소");
-			cancel.addActionListener(this);
-			bg.add(order);
-			bg.add(cancel);
+			random.setActionCommand("result");
 			botPanel.add(order);
+
+			//취소 버튼
+			cancel.addActionListener(this);
 			botPanel.add(cancel);
+			
+			//텍스트 뷰
+			botPanel.add(textRandom);
+			
 			add(botPanel, BorderLayout.SOUTH);
 			setVisible(true);
+			
+			
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
+			
+			//주문 완료(->result)
 			if (arg0.getSource() == order) {
 				JOptionPane.showMessageDialog(controller, "주문 완료");
+				controller.change("result");
 			} else if (arg0.getActionCommand().equals("random")) {
-				Product product = new Product();
-				product = controller.getRandomList();
-				//System.out.println(product);
+				Product productView = new Product();
+				productView = controller.getRandomList();
+				textRandom.setText(productView.toString());
         		
 				
 			}

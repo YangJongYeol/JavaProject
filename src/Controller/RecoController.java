@@ -62,4 +62,12 @@ public class RecoController extends JFrame {
   
  		return product;
     }
+    
+    public ArrayList<Content> getIngredientById(int id) {
+    	ArrayList<Content> list = new ArrayList<Content>();
+    	Ingredient IngredientModel = new Ingredient();
+    	list = IngredientModel.getIngredientById(id);
+    
+    	return list;
+    }
 }

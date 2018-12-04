@@ -15,7 +15,6 @@ private Model.Ingredient model;
 private SelfFrame self = null;
 private Order order = null;
 
- 
 public SelfController(JFrame frame, Order order) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.self = new SelfFrame(this);

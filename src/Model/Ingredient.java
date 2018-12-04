@@ -24,8 +24,7 @@ public class Ingredient {
 	ResultSet rs = null;
 
 	
-	ArrayList<Content> list = new ArrayList<Content>();
-
+	
 	public void connectDB() {
 		try {
 			Class.forName(JDBC_DRIVER);
@@ -39,7 +38,8 @@ public class Ingredient {
 	//step에 따라서 DB에서 재료 return
 	public ArrayList<Content> getIngredientByLevel(int step) {
 		connectDB();
-		System.out.println(step);
+		ArrayList<Content> list = new ArrayList<Content>();
+		//System.out.println(step);
 		String sql = "SELECT id, title, img FROM ingredients WHERE step = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -68,6 +68,8 @@ public class Ingredient {
 	//Product
 	//id에 따라서 DB에서 재료 return
 	public ArrayList<Content> getIngredientById(int id) {
+		connectDB();
+		ArrayList<Content> list = new ArrayList<Content>();
 		String sql = "SELECT step, title, img FROM ingredients WHERE id = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -86,8 +88,8 @@ public class Ingredient {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return list;
-			
+		
+		return list;	
 	}
 	
 	public Product getRandomIngredientId() {
@@ -141,7 +143,7 @@ public class Ingredient {
 				arrayVegetable[i] = rs.getInt("id");
 				i++;
 			}
-			product.setTopping(arrayVegetable);
+			product.setVegetable(arrayVegetable);
 			
 			//5. Sauce
 			pstmt.setInt(1, 5);
@@ -153,8 +155,7 @@ public class Ingredient {
 				arraySauce[i] = rs.getInt("id");
 				i++;
 			}
-			
-			product.setTopping(arraySauce);
+			product.setSauce(arraySauce);
 			
 			
 		} catch (SQLException e) {

@@ -15,7 +15,6 @@
         var head = document.getElementById('address');
         head.innerHTML = addr[1];
 
-        var infowindow = new daum.maps.InfoWindow({zIndex:1});
 		var container = document.getElementById('map');
 		var options = {
 			center: new daum.maps.LatLng(33.450701, 126.570667),
@@ -35,10 +34,7 @@
                     position: coords
                 });
 
-                var infowindow = new daum.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
-                });
-                infowindow.open(map, marker);
+               
 
                 map.setCenter(coords);
 

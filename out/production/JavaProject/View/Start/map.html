@@ -5,15 +5,17 @@
     <title>Daum 지도 시작하기</title>
 </head>
 <body>
-    <h1 id="address">"Hello World"</h1>
-    <div id="map" style="width:500px;height:400px;"></div>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e68d9c2d5b65963307d2424ed87810b&libraries=services"></script>
-    <script>
+<h1 id="address">"Hello World"</h1>
+<div id="map" style="width:500px;height:400px;"></div>
+<script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e68d9c2d5b65963307d2424ed87810b&libraries=services"></script>
+<script>
         var addr = String(decodeURI(location)).split('?');
 
         var head = document.getElementById('address');
         head.innerHTML = addr[1];
 
+        var infowindow = new daum.maps.InfoWindow({zIndex:1});
 		var container = document.getElementById('map');
 		var options = {
 			center: new daum.maps.LatLng(33.450701, 126.570667),
@@ -21,6 +23,8 @@
 		};
 
 		var map = new daum.maps.Map(container, options);
+		var ps = new daum.maps.services.Places();
+
         var geocoder = new daum.maps.services.Geocoder();
         geocoder.addressSearch(addr[1], function(result, status) {
             if (status === daum.maps.services.Status.OK) {
@@ -37,8 +41,45 @@
                 infowindow.open(map, marker);
 
                 map.setCenter(coords);
+
+                var opt = {
+                    location: coords,
+                    radius: 2000
+                };
+
+                ps.keywordSearch('서브웨이', placesSearchCB, opt);
             }
         });
-	</script>
+
+        var markers = [];
+
+        function placesSearchCB (data, status, pagination) {
+            if (status === daum.maps.services.Status.OK) {
+
+                var bounds = new daum.maps.LatLngBounds();
+
+                for (var i=0; i<data.length; i++) {
+                    displayMarker(data[i]);
+                    bounds.extend(new daum.maps.LatLng(data[i].y, data[i].x));
+                }
+
+                map.setBounds(bounds);
+            }
+        }
+
+        function displayMarker(place) {
+
+            var marker = new daum.maps.Marker({
+                map: map,
+                position: new daum.maps.LatLng(place.y, place.x)
+            });
+
+            daum.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+                infowindow.open(map, marker);
+            });
+        }
+
+</script>
 </body>
 </html>

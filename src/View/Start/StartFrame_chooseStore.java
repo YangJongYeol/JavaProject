@@ -28,15 +28,15 @@ public class StartFrame_chooseStore extends JPanel {
 
         JButton button_konkuk = new JButton("건대입구점");
         button_konkuk.addActionListener(new MyActionListener());
-        JLabel label_konkuk = new JLabel("주문수 : "+store.getOrderNumberByMarket("konkuk"));
+        JLabel label_konkuk = new JLabel("주문수 : "+store.getOrderNumberByMarket("건대입구점"));
 
         JButton button_rodeo = new JButton("건대로데오점");
         button_rodeo.addActionListener(new MyActionListener());
-        JLabel label_rodeo = new JLabel("주문수 : "+store.getOrderNumberByMarket("rodeo"));
+        JLabel label_rodeo = new JLabel("주문수 : "+store.getOrderNumberByMarket("건대로데오점"));
 
         JButton button_sejong = new JButton("세종대점");
         button_sejong.addActionListener(new MyActionListener());
-        JLabel label_sejong = new JLabel("주문수 : "+store.getOrderNumberByMarket("sejong"));
+        JLabel label_sejong = new JLabel("주문수 : "+store.getOrderNumberByMarket("세종대점"));
 
         panel.add(label_konkuk);
         panel.add(button_konkuk);
@@ -44,7 +44,7 @@ public class StartFrame_chooseStore extends JPanel {
         panel.add(label_rodeo);
         panel.add(button_rodeo);
 
-        panel.add(button_sejong);
+        panel.add(label_sejong);
         panel.add(button_sejong);
 
         add(panel, BorderLayout.CENTER);
@@ -63,6 +63,8 @@ public class StartFrame_chooseStore extends JPanel {
             //******************************************************
             //db사용!! 주문 수 +1
             Store store = new Store();
+            System.out.println("startFrame_choose 66line"+e.getActionCommand());
+            
             store.updateOrderNumberByMarket(e.getActionCommand());
         }
     }

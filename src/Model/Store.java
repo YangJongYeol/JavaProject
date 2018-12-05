@@ -53,12 +53,14 @@ public class Store {
 
     public void updateOrderNumberByMarket(String market) {
         connectDB();
-        String sql = "UPDATE order set order_num = order_num+1 where market = ?";
+        //System.out.println(market);
+        String sql = "UPDATE store SET order_num = order_num + 1 WHERE market = ?";
 
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, market);
-            rs = pstmt.executeQuery();
+            
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

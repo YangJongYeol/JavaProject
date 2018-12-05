@@ -24,3 +24,9 @@ CREATE TABLE ingredients(
 	img VARCHAR(255),
 	PRIMARY KEY (id)
 );
+
+CREATE TABLE store{
+    market VARCHAR(30) NOT NULL,
+    order_num INTEGER,
+    PRIMARY KEY (market)
+};

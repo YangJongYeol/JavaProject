@@ -1,4 +1,20 @@
-public class SelfView extends JFrame implements ActionListener, ItemListener {
+package View.Self;
+
+import View.Self.SelfFrame.JPanel022;
+import View.Self.SelfFrame.JPanel033;
+import View.Self.SelfFrame.JPanel044;
+import View.Self.SelfFrame.JPanel055;
+import View.Self.SelfFrame.JPanel066;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+public class SelfTemp extends JFrame implements ActionListener, ItemListener {
 
 	class JPanel011 extends JPanel {
 		JRadioButton[] radio = new JRadioButton[8];
@@ -72,15 +88,15 @@ public class SelfView extends JFrame implements ActionListener, ItemListener {
 
 	JTabbedPane jtab = new JTabbedPane();
 
-	public SelfView() {
+	public SelfTemp() {
 		setTitle("Which Sandwich?");
 
-		jpanel1 = new JPanel011();
-		jpanel2 = new JPanel022();
-		jpanel3 = new JPanel033();
-		jpanel4 = new JPanel044();
-		jpanel5 = new JPanel055();
-		jpanel6 = new JPanel066();
+//		jpanel1 = new JPanel011();
+//		jpanel2 = new JPanel022();
+//		jpanel3 = new JPanel033();
+//		jpanel4 = new JPanel044();
+//		jpanel5 = new JPanel055();
+//		jpanel6 = new JPanel066();
 
 		jtab.addTab("메뉴", jpanel1);
 		jtab.addTab("빵", jpanel2);

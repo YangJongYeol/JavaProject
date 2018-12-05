@@ -27,6 +27,7 @@ import Model.Content;
 import Model.Ingredient;
 
 public class SelfFrame extends JPanel {
+//    public SelfFrame(SelfController controller) {
 	public SelfController controller;
 	JTabbedPane jtab;
 

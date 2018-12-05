@@ -18,6 +18,7 @@ import java.util.Iterator;
 public class RecoController extends JFrame {
     private RecoFrame reco;
     private RecoComplete complete;
+    private ResultFrame result;
     private Order order = null;
 
     public RecoController(JFrame frame, Order order) {
@@ -25,6 +26,7 @@ public class RecoController extends JFrame {
         //setContentPane(frame.getContentPane());
         this.reco = new RecoFrame(this);
         this.complete = new RecoComplete(this);
+        this.result = new ResultFrame(new ResultController());
         this.order = order;
 
         System.out.println(order);

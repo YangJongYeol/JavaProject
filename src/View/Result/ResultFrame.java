@@ -9,7 +9,6 @@ import javax.swing.*;
 
 import Controller.ResultController;
 import Model.Content;
-import View.Result.ResultFrame;
 
 public class ResultFrame extends JPanel {
 	private ResultController controller;
@@ -26,7 +25,7 @@ public class ResultFrame extends JPanel {
         setVisible(true);
         
 	}
-	
+
 	class MyActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {

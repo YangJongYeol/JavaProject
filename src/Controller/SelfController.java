@@ -15,7 +15,6 @@ private Model.Ingredient model;
 private SelfFrame self = null;
 private Order order = null;
 
- 
 public SelfController(JFrame frame, Order order) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.self = new SelfFrame(this);
@@ -45,7 +44,6 @@ public SelfController(JFrame frame, Order order) {
     	Ingredient IngredientModel = new Ingredient();
     	
     	arrayList = IngredientModel.getIngredientByLevel(level);
-  
     	
     	//Iterator<Content> Iterator = arrayList.iterator();
     	//결과 Iterator.next().getImg()로 return

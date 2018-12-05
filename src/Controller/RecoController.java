@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Order;
 import View.Reco.RecoFrame;
+import View.Result.ResultFrame;
 import View.Reco.RecoComplete;
 
 import javax.swing.*;
@@ -46,6 +47,11 @@ public class RecoController extends JFrame {
             getContentPane().add(complete);
             revalidate();
             repaint();
+        } else if(frameName.equals("result")) {
+            getContentPane().removeAll();
+            getContentPane().add(result);
+            revalidate();
+            repaint();
         }
     }
     
@@ -57,5 +63,13 @@ public class RecoController extends JFrame {
     	//Iterator<Content> Iterator = product.iterator();
   
  		return product;
+    }
+    
+    public ArrayList<Content> getIngredientById(int id) {
+    	ArrayList<Content> list = new ArrayList<Content>();
+    	Ingredient IngredientModel = new Ingredient();
+    	list = IngredientModel.getIngredientById(id);
+    
+    	return list;
     }
 }

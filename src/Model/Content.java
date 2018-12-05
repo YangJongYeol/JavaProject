@@ -14,6 +14,10 @@ public class Content{
 		this.img = img;
 	}
 
+	public Content() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}

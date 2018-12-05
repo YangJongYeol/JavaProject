@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Arrays;
+
 public class Product {
 	
 	private int Menu;
@@ -38,24 +40,24 @@ public class Product {
         Bread = bread;
     }
 
-    public int[] getTopping() {
-        return Topping;
+    public String getTopping() {
+        return Arrays.toString(Topping);
     }
 
     public void setTopping(int[] topping) {
         Topping = topping;
     }
 
-    public int[] getVegetable() {
-        return Vegetable;
+    public String getVegetable() {
+        return Arrays.toString(Vegetable);
     }
 
     public void setVegetable(int[] vegetable) {
         Vegetable = vegetable;
     }
 
-    public int[] getSauce() {
-        return Sauce;
+    public String getSauce() {
+        return Arrays.toString(Sauce);
     }
 
     public void setSauce(int[] sauce) {
@@ -73,7 +75,7 @@ public class Product {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "Menu:"+ getMenu() + "Bread:" + getBread() + "Topping:" + getTopping() + "Sauce:" + getSauce() + "Set:" + getSet();
+		return "Menu: "+ getMenu() + "\t Bread: " + getBread() + "\t Topping:" + getTopping() +  "\t Vegetable:" + getVegetable() + "\t Sauce:" + getSauce() + "Set:" + getSet();
 	}
 
 	

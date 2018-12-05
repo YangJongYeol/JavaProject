@@ -19,8 +19,8 @@ public class RecoController extends JFrame {
     private RecoFrame reco;
     private ResultFrame result;
     
-    private StartController startController = new StartController();
-    private StartFrame_chooseRecommend recommend = new StartFrame_chooseRecommend(startController);
+    //private StartController startController = new StartController();
+    //private StartFrame_chooseRecommend recommend = new StartFrame_chooseRecommend(startController);
     
     private Order order = null;
 
@@ -54,7 +54,7 @@ public class RecoController extends JFrame {
             repaint();
         } else if(frameName.equals("cancel")) {
             getContentPane().removeAll();
-            getContentPane().add(recommend);
+            getContentPane().add(result);
             revalidate();
             repaint();
         }

@@ -27,7 +27,7 @@ public class StartController extends JFrame {
 
     public StartController() {
         this.order = new Order(false, "");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation = new StartFrame_setLocation(this);
         this.chooseStore = new StartFrame_chooseStore(this);
         this.chooseDelivery = new StartFrame_chooseDelivery(this);

@@ -165,4 +165,26 @@ public class Ingredient {
 		return product;
 			
 	}
+	
+	
+	public String getTitleById(int id) {
+		String title = "";
+		connectDB();
+		//System.out.println(step);
+		String sql = "SELECT title FROM ingredients WHERE id = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+		         title = rs.getString("title");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return title;
+		
+	}
 }

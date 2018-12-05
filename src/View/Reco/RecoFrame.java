@@ -24,6 +24,7 @@ import javax.swing.border.TitledBorder;
 
 import Controller.RecoController;
 import Model.Content;
+import Model.Ingredient;
 import Model.Order;
 import Model.Product;
 
@@ -45,7 +46,8 @@ public class RecoFrame extends JPanel {
 	ImageIcon[] i = { new ImageIcon("image2/spicy.jpg"), new ImageIcon("image2/meat.jpg"),
 			new ImageIcon("image2/chicken.jpg"), new ImageIcon("image2/steak.jpg"),
 			new ImageIcon("image2/american.jpg"), new ImageIcon("image2/egg.jpg"), new ImageIcon("image2/blt.jpg") };
-
+	JLabel randomList;
+	
 	public RecoFrame(RecoController controller) {
 		this.controller = controller;
 		this.setLayout(new BorderLayout());
@@ -70,6 +72,9 @@ public class RecoFrame extends JPanel {
 		this.add(panel4, BorderLayout.SOUTH);
 		img = new JLabel();
 		this.add(img, BorderLayout.CENTER);
+		JLabel label = new JLabel("                                             " + "                 "
+				+ "                           ");
+		this.add(label, BorderLayout.WEST);
 
 		// setTitle("완성품 추천");
 		setSize(500, 500);
@@ -220,7 +225,7 @@ public class RecoFrame extends JPanel {
 			// botPanel.setLayout(new GridLayout(2, 1));
 			
 			//버튼s
-			JButton random = new JButton("랜덤");
+			random = new JButton("랜덤");
 			random.addActionListener(this);
 			botPanel.add(random);
 
@@ -233,6 +238,9 @@ public class RecoFrame extends JPanel {
 			complete.addActionListener(this);
 			botPanel.add(complete);
 			
+			randomList = new JLabel("");
+			botPanel.add(randomList);
+			
 			add(botPanel, BorderLayout.SOUTH);
 			setVisible(true);
 		}
@@ -244,10 +252,26 @@ public class RecoFrame extends JPanel {
 				JOptionPane.showMessageDialog(controller, "주문 완료");
 
 			} else if (arg0.getSource() == random) {
+				Product product = new Product();
+				product = controller.getRandomList();
+				//randomList.setText(product.toString());
+				//System.out.println(product.toString());
+				int menuId = product.getMenu();
+				int breadId = product.getBread();
+				int[] toppingId = product.getToppingInt();
+				int[] sauceId = product.getSauceInt();
+				
+				Ingredient ingredientModel = new Ingredient();
+				
 				img.setIcon(null);
-				img.setText("랜덤입니다");
+				img.setText("<html> <h1>랜덤 추천메뉴는??<h1/>"
+							+ "<br>메뉴: " + ingredientModel.getTitleById(menuId) 
+							+ "<br>빵: "+ ingredientModel.getTitleById(breadId)
+							+ "<br>토핑: " + ingredientModel.getTitleById(toppingId[0]) +", " + ingredientModel.getTitleById(toppingId[1])
+							+ "<br>소스: "  + ingredientModel.getTitleById(sauceId[0]) +", " + ingredientModel.getTitleById(sauceId[1])
+							+ "</html>");
 			} else if (arg0.getSource() == cancel) {
-				System.exit(0);
+				controller.change("cancel");
 			} else if (arg0.getSource() == complete) {
 				controller.change("result");
 			}

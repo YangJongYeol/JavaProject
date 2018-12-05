@@ -235,8 +235,11 @@ public class SelfFrame extends JPanel {
 					@Override
 					public void itemStateChanged(ItemEvent e) {
 						// TODO Auto-generated method stub
-						if (e.getStateChange() == ItemEvent.DESELECTED)
-							return;
+						if (e.getStateChange() == ItemEvent.DESELECTED) {
+							for (int i = 0; i < pictureLabel.length; i++)
+								pictureLabel[i].setIcon(null);
+
+						}
 						for (int i = 0; i < pictureLabel.length; i++) {
 							if (checkbox[i].isSelected()) {
 								pictureLabel[i].setIcon(icon[i]);
@@ -244,8 +247,10 @@ public class SelfFrame extends JPanel {
 								pictureLabel[i].setIcon(null);
 						}
 					}
+					
+					
 				});
-				icon[i] = new ImageIcon("image/" + topping[i] + ".jpg"); // 이미지 파일 이름(토핑 이미지)
+				icon[i] = new ImageIcon("image/topping/" + topping[i] + ".jpg"); // 이미지 파일 이름(토핑 이미지)
 				pictureLabel[i] = new JLabel("");
 				panel2.add(pictureLabel[i]);
 			}
@@ -299,10 +304,12 @@ public class SelfFrame extends JPanel {
 					@Override
 					public void itemStateChanged(ItemEvent e) {
 						// TODO Auto-generated method stub
-						if (e.getStateChange() == ItemEvent.DESELECTED)
-							return;
+						if (e.getStateChange() == ItemEvent.DESELECTED) {
+							for (int i = 0; i < pictureLabel.length; i++)
+								pictureLabel[i].setIcon(null);
+						}
 						for (int i = 0; i < pictureLabel.length; i++) {
-							if (checkbox1[i].isSelected()) {
+							if (!checkbox1[i].isSelected()) {
 								pictureLabel[i].setIcon(icon[i]);
 							} else
 								pictureLabel[i].setIcon(null);
@@ -313,6 +320,12 @@ public class SelfFrame extends JPanel {
 				pictureLabel[i] = new JLabel("");
 				panel2.add(pictureLabel[i]);
 			}
+			/*
+			for (int z = 0; z < pictureLabel.length; z++) {
+				if (checkbox1[z].isSelected()) {
+					pictureLabel[z].setIcon(icon[z]);
+				}
+			}*/
 			this.add(panel2, BorderLayout.CENTER);
 			btn1 = new JButton("다음");
 			btn1.addActionListener(new ActionListener() {

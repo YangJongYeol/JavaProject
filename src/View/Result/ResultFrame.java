@@ -22,15 +22,14 @@ public class ResultFrame extends JPanel {
 		
 		
 		//Field
-		JLabel titleLabel = new JLabel("결과");
+		JLabel titleLabel = new JLabel("<html>주문을 완료하였습니다!!<br></html>");
 		
 		JButton backButton = new JButton("뒤로");
 		backButton.setBounds(10,10,10,10);
         backButton.addActionListener(new MyActionListener());
         
-        JLabel orderLabel = new JLabel("a");
- 
-        orderLabel.setText(order.toString());
+        JLabel orderLabel = new JLabel("");
+        orderLabel.setText("매장: " + order.getMarket() + "주소" + order.getAddress());
         add(titleLabel);
         add(backButton);
         add(orderLabel);

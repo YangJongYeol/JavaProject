@@ -14,12 +14,12 @@ public class StartFrame_chooseDelivery extends JPanel {
 
         JLabel label = new JLabel("딜리버리를 이용하실건가요?");
 
-        JButton button_yes = new JButton("YES");
+        JButton button_yes = new JButton("네! 배달할래요");
         button_yes.setBounds(10,10,10,10);
         button_yes.setActionCommand("yes");
         button_yes.addActionListener(new MyActionListener());
 
-        JButton button_no = new JButton("NO");
+        JButton button_no = new JButton("아니요, 직접 가서 주문할래요");
         button_no.setBounds(10,10,10,10);
         button_no.setActionCommand("no");
         button_no.addActionListener(new MyActionListener());

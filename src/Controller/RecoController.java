@@ -3,7 +3,7 @@ package Controller;
 import Model.Order;
 import View.Reco.RecoFrame;
 import View.Result.ResultFrame;
-
+import View.Start.StartFrame_chooseRecommend;
 
 import javax.swing.*;
 
@@ -18,6 +18,10 @@ import java.util.Iterator;
 public class RecoController extends JFrame {
     private RecoFrame reco;
     private ResultFrame result;
+    
+    private StartController startController = new StartController();
+    private StartFrame_chooseRecommend recommend = new StartFrame_chooseRecommend(startController);
+    
     private Order order = null;
 
     public RecoController(JFrame frame, Order order) {
@@ -46,6 +50,11 @@ public class RecoController extends JFrame {
         } else if(frameName.equals("result")) {
             getContentPane().removeAll();
             getContentPane().add(result);
+            revalidate();
+            repaint();
+        } else if(frameName.equals("cancel")) {
+            getContentPane().removeAll();
+            getContentPane().add(recommend);
             revalidate();
             repaint();
         }

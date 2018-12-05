@@ -25,6 +25,10 @@ CREATE TABLE ingredients(
 	PRIMARY KEY (id)
 );
 
+
+/*
+    매장 주문 현황 테이블
+*/
 CREATE TABLE store{
     market VARCHAR(30) NOT NULL,
     order_num INTEGER,

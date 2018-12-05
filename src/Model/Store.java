@@ -3,6 +3,10 @@ package Model;
 import java.sql.*;
 import java.util.ArrayList;
 
+/*
+    매장 주문 현황을 볼 때 사용하는 DB Model
+ */
+
 public class Store {
     static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
     static final String DB_URL = "jdbc:mariadb://whichsandwich.c25onscqmkzg.ap-northeast-2.rds.amazonaws.com:3306/whichSandwich";

@@ -20,6 +20,8 @@ public class StartFrame_chooseStore extends JPanel {
 //        button.setBounds(10,10,10,10);
 //        button.addActionListener(new MyActionListener());
 
+        //******************************************************
+        //db사용!! 주문 현황 출력
         Store store = new Store();
 
         JPanel panel = new JPanel(new GridLayout(3,2));
@@ -57,6 +59,11 @@ public class StartFrame_chooseStore extends JPanel {
             System.out.println(e.getActionCommand());
             controller.change("delivery");
             controller.setOrder_market(e.getActionCommand());
+
+            //******************************************************
+            //db사용!! 주문 수 +1
+            Store store = new Store();
+            store.updateOrderNumberByMarket(e.getActionCommand());
         }
     }
 }

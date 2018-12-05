@@ -26,12 +26,12 @@ public class StartController extends JFrame {
 //    private Statement statement = null;
 
     public StartController() {
+        this.order = new Order(false, "");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocation = new StartFrame_setLocation(this);
         this.chooseStore = new StartFrame_chooseStore(this);
         this.chooseDelivery = new StartFrame_chooseDelivery(this);
         this.chooseRecommend = new StartFrame_chooseRecommend(this);
-        this.order = new Order(false, "");
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension =  toolkit.getScreenSize(); // screen information
@@ -48,12 +48,15 @@ public class StartController extends JFrame {
             repaint();
         } else if (frameName.equals("store")) {
             getContentPane().removeAll();
+
             Browser browser = new Browser();
-            BrowserView browserView = new BrowserView(browser);
-            getContentPane().add(browserView, BorderLayout.CENTER);
-//            browser.loadURL("http://localhost:8000/map.html");
             browser.loadURL("http://localhost:8000/map.html?"+order.getAddress());
+            BrowserView browserView = new BrowserView(browser);
+
+            getContentPane().add(browserView, BorderLayout.CENTER);
             getContentPane().add(chooseStore, BorderLayout.EAST);
+            setLocationRelativeTo(null);
+
             revalidate();
             repaint();
         } else if (frameName.equals("delivery")) {
@@ -67,7 +70,7 @@ public class StartController extends JFrame {
             revalidate();
             repaint();
         } else if (frameName.equals("reco")) {
-            RecoController recoController = new RecoController(this);
+            RecoController recoController = new RecoController(this, order);
             recoController.change("reco");
             dispose();
         } else if (frameName.equals("self")) {
@@ -80,5 +83,18 @@ public class StartController extends JFrame {
     public void setOrder_address(String orderAddress) {
         this.order.setAddress(orderAddress);
         System.out.println(this.order.getAddress());
+    }
+
+    public void setOrder_market(String orderMarket) {
+        this.order.setMarket(orderMarket);
+        System.out.println(this.order.getMarket());
+    }
+
+    public void setOrder_delivery(boolean flag) {
+        this.order.setDelivery(flag);
+    }
+
+    public String orderToString() {
+        return this.order.toString();
     }
 }

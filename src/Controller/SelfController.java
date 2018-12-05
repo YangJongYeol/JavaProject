@@ -21,6 +21,8 @@ public SelfController(JFrame frame, Order order) {
         this.self = new SelfFrame(this);
         this.order = order;
 
+        System.out.println(order);
+
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension =  toolkit.getScreenSize(); // screen information
         setBounds(0 , 0 , (int)dimension.getWidth() , (int)dimension.getHeight());

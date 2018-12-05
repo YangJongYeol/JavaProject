@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Order;
 import View.Reco.RecoFrame;
 import View.Reco.RecoComplete;
 
@@ -16,12 +17,16 @@ import java.util.Iterator;
 public class RecoController extends JFrame {
     private RecoFrame reco;
     private RecoComplete complete;
+    private Order order = null;
 
-    public RecoController(JFrame frame) {
+    public RecoController(JFrame frame, Order order) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setContentPane(frame.getContentPane());
         this.reco = new RecoFrame(this);
         this.complete = new RecoComplete(this);
+        this.order = order;
+
+        System.out.println(order);
 
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimension =  toolkit.getScreenSize(); // screen information

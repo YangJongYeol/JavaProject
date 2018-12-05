@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1 id="address">"Hello World"</h1>
-<div id="map" style="width:500px;height:400px;"></div>
+<div id="map" style="width:1000px;height:600px;"></div>
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6e68d9c2d5b65963307d2424ed87810b&libraries=services"></script>
 <script>
@@ -36,7 +36,7 @@
                 });
 
                 var infowindow = new daum.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">내위치</div>'
                 });
                 infowindow.open(map, marker);
 
@@ -44,7 +44,7 @@
 
                 var opt = {
                     location: coords,
-                    radius: 2000
+                    radius: 800
                 };
 
                 ps.keywordSearch('서브웨이', placesSearchCB, opt);

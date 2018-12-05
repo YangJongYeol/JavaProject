@@ -30,9 +30,9 @@ public class StartFrame_chooseDelivery extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand().equals("yes")) {
-
+                controller.setOrder_delivery(true);
             } else {
-
+                controller.setOrder_delivery(false);
             }
 
             controller.change("recommend");

@@ -28,6 +28,8 @@ public class StartFrame_chooseRecommend extends JPanel {
     class MyActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println(controller.orderToString());
+            
             if (e.getActionCommand().equals("yes")) {
                 controller.change("reco");
             } else {

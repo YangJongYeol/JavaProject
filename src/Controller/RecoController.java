@@ -3,7 +3,7 @@ package Controller;
 import Model.Order;
 import View.Reco.RecoFrame;
 import View.Result.ResultFrame;
-import View.Reco.RecoComplete;
+
 
 import javax.swing.*;
 
@@ -17,7 +17,6 @@ import java.util.Iterator;
 
 public class RecoController extends JFrame {
     private RecoFrame reco;
-    private RecoComplete complete;
     private ResultFrame result;
     private Order order = null;
 
@@ -25,8 +24,8 @@ public class RecoController extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setContentPane(frame.getContentPane());
         this.reco = new RecoFrame(this);
-        this.complete = new RecoComplete(this);
-        this.result = new ResultFrame(new ResultController());
+        
+        this.result = new ResultFrame(new ResultController(frame, order), order);
         this.order = order;
 
         System.out.println(order);
@@ -39,14 +38,9 @@ public class RecoController extends JFrame {
     }
 
     public void change(String frameName) {
-        if (frameName.equals("reco")) {
+        if (frameName.equals("reco") || frameName.equals("complete")) {
             getContentPane().removeAll();
             getContentPane().add(reco);
-            revalidate();
-            repaint();
-        } else if(frameName.equals("complete")) {
-            getContentPane().removeAll();
-            getContentPane().add(complete);
             revalidate();
             repaint();
         } else if(frameName.equals("result")) {

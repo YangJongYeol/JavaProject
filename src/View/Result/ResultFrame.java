@@ -9,26 +9,38 @@ import javax.swing.*;
 
 import Controller.ResultController;
 import Model.Content;
+import Model.Order;
 
 public class ResultFrame extends JPanel {
 	private ResultController controller;
-	public ResultFrame(ResultController controller) {
+	private Order order;
+	
+	public ResultFrame(ResultController controller, Order order) {
 		this.controller = controller;
+		this.order = order;
+		
+		
 		
 		//Field
-		JLabel TitleLabel = new JLabel("결과");
-		JButton backButton = new JButton("뒤로");
+		JLabel titleLabel = new JLabel("결과");
 		
+		JButton backButton = new JButton("뒤로");
 		backButton.setBounds(10,10,10,10);
         backButton.addActionListener(new MyActionListener());
-        add(backButton);
-        setVisible(true);
         
+        JLabel orderLabel = new JLabel("a");
+ 
+        orderLabel.setText(order.toString());
+        add(titleLabel);
+        add(backButton);
+        add(orderLabel);
+        setVisible(true);
 	}
-
+	
 	class MyActionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+        	/*
         	JOptionPane.showMessageDialog(controller ,"click");
         	
         	//step의 입력값(setActionCommand로 입력한 값)에 따라서 다른 데이터 출력)
@@ -45,7 +57,9 @@ public class ResultFrame extends JPanel {
         			//System.out.println(Iterator.next().getImg());
          		}
     		}
+    		*/
         }
         
     }
+    
 }

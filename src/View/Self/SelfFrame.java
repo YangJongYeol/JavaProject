@@ -404,7 +404,7 @@ public class SelfFrame extends JPanel {
 	}
 
 	class JPanel066 extends JPanel {
-		JCheckBox[] checkbox = new JCheckBox[6];
+		JCheckBox[] checkbox = new JCheckBox[20];
 		String[] side = { "웨지 포테이토", "해쉬브라운" };
 		String[] soup = { "브로콜리 수프", "베이컨 수프" };
 		String[] cookie = { "더블 초코칩 쿠키", "초코칩 쿠키", "오트밀 레이즌", "라즈베리 치즈케익", "화이트 초코 마카다미아" };
@@ -431,6 +431,7 @@ public class SelfFrame extends JPanel {
 			tap3 = new JLabel("");
 			tap4 = new JLabel("");
 			this.add(panel1, BorderLayout.NORTH);
+			//1. 사이드
 			label1 = new JLabel("          사이드:");
 			panel1.add(label1);
 			for (int i = 0; i < side.length; i++) {
@@ -455,6 +456,7 @@ public class SelfFrame extends JPanel {
 				pictureLabel[i] = new JLabel("");
 				panel2.add(pictureLabel[i]);
 			}
+			//2. 수프
 			label2 = new JLabel("              수프:");
 			panel1.add(label2);
 			for (int i = 0; i < soup.length; i++) {
@@ -479,6 +481,7 @@ public class SelfFrame extends JPanel {
 				pictureLabel[i] = new JLabel("");
 				panel2.add(pictureLabel[i]);
 			}
+			//3. 쿠키
 			label3 = new JLabel("              쿠키:");
 			panel1.add(label3);
 			for (int i = 0; i < 2; i++) {
@@ -503,6 +506,7 @@ public class SelfFrame extends JPanel {
 				pictureLabel[i] = new JLabel("");
 				panel2.add(pictureLabel[i]);
 			}
+			
 			panel1.add(tap1);
 			for (int i = 2; i < 4; i++) {
 				checkbox[i] = new JCheckBox(cookie[i]);
@@ -549,6 +553,7 @@ public class SelfFrame extends JPanel {
 				pictureLabel[i] = new JLabel("");
 				panel2.add(pictureLabel[i]);
 			}
+			//4. 음료
 			panel1.add(tap4);
 			label4 = new JLabel("              음료:");
 			panel1.add(label4);
@@ -604,14 +609,10 @@ public class SelfFrame extends JPanel {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					// TODO Auto-generated method stub
-					jtab.setSelectedIndex(6);
-					jtab.setEnabledAt(0, true);
-					jtab.setEnabledAt(1, true);
-					jtab.setEnabledAt(2, true);
-					jtab.setEnabledAt(3, true);
-					jtab.setEnabledAt(4, true);
-					jtab.setEnabledAt(5, true);
-					jtab.setEnabledAt(6, true);
+					if(arg0.getSource()==btn1) {
+						controller.change("result");
+						JOptionPane.showMessageDialog(controller, "주문 완료");
+					}
 				}
 
 			});

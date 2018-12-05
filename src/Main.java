@@ -48,7 +48,8 @@ public class Main {
 
         
         StartController startController = new StartController();
-        startController.change("location");
+        //startController.change("location");
+        startController.change("recommend");
     	
     }
 }
